@@ -1,0 +1,118 @@
+.markdown {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  line-height: 1.4;
+  scroll-margin-top: 100px;
+}
+
+.markdown h1 {
+  margin: 0 0 28px;
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+
+.markdown h2 {
+  margin: 44px 0 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 24px;
+}
+
+.markdown h3 {
+  margin-top: 30px;
+  font-size: 19px;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin: 18px 0;
+}
+
+.markdown a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.markdown blockquote {
+  margin: 24px 0;
+  padding: 2px 20px;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  background: var(--accent-soft);
+}
+
+.markdown :not(pre) > code {
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+  background: var(--surface-alt);
+  font-size: 0.88em;
+}
+
+.markdown pre {
+  position: relative;
+  overflow-x: auto;
+  padding: 24px;
+  border-radius: 10px;
+  color: #e6edf3;
+  background: #182623;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.markdown code {
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.copy-code {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  border: 1px solid #44544b;
+  border-radius: 4px;
+  color: #c6d9cb;
+  background: #25382f;
+  font-size: 11px;
+}
+
+.markdown table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.markdown th,
+.markdown td {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.markdown th {
+  background: var(--surface-alt);
+}
+
+.markdown hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
