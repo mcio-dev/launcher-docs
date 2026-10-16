@@ -47,7 +47,7 @@ export function outputFile(page) {
   return page.route.slice(1) + 'index.html';
 }
 
-export async function walk(directory) {
+export async function walk(directory, { allowWellKnown = false } = {}) {
   let entries;
 
   try {
@@ -64,7 +64,12 @@ export async function walk(directory) {
   const files = [];
 
   for (const entry of entries) {
-    if (entry.name.startsWith('.')) {
+    // 仅允许公共资源根目录的标准验证目录，其他隐藏项仍不发布。
+    const verificationDirectory = allowWellKnown
+      && entry.name === '.well-known'
+      && entry.isDirectory();
+
+    if (entry.name.startsWith('.') && !verificationDirectory) {
       continue;
     }
 

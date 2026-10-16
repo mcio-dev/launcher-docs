@@ -77,9 +77,21 @@ export function createStaticServer({ directory, base = '/', live = false }) {
         return;
       }
 
+      const relativePath = pathname.startsWith(currentBase)
+        ? pathname.slice(currentBase.length)
+        : pathname.slice(1);
+      const segments = relativePath.split('/');
+      const hiddenPath = segments.some((segment, index) => {
+        const verificationDirectory = index === 0
+          && segment === '.well-known'
+          && segments.length > 1;
+
+        return segment.startsWith('.') && !verificationDirectory;
+      });
+
       const invalid = pathname.includes('\\')
         || pathname.includes('\0')
-        || pathname.split('/').some(segment => segment === '..' || segment.startsWith('.'));
+        || hiddenPath;
 
       if (invalid) {
         response.writeHead(400);

@@ -79,7 +79,11 @@ async function scanAssets(root) {
   const assets = new Map();
 
   for (const directory of ['docs', 'public']) {
-    for (const filename of await walk(path.join(root, directory))) {
+    const files = await walk(path.join(root, directory), {
+      allowWellKnown: directory === 'public',
+    });
+
+    for (const filename of files) {
       if (directory === 'docs' && /\.md$/i.test(filename)) {
         continue;
       }
